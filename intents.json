@@ -1,0 +1,14 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "Hey"],
+      "responses": ["Hello!", "Hi there!"]
+    },
+    {
+      "tag": "fees",
+      "patterns": ["What is fees?", "fee structure"],
+      "responses": ["The fee is ₹50,000 per year"]
+    }
+  ]
+}
