@@ -1,15 +1,17 @@
-import json
-import random
+chat_history = []
 
-with open('intents.json') as file:
-    data = json.load(file)
+@app.route("/get", methods=["POST"])
+def chat():
+    user_msg = request.form["msg"]
 
-def get_response(user_input):
-    user_input = user_input.lower()
-    
-    for intent in data['intents']:
-        for pattern in intent['patterns']:
-            if pattern.lower() in user_input:
-                return random.choice(intent['responses'])
-    
-    return "Sorry, I don't understand."
+    chat_history.append({"role": "user", "content": user_msg})
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=chat_history
+    )
+
+    reply = response.choices[0].message.content
+    chat_history.append({"role": "assistant", "content": reply})
+
+    return jsonify({"response": reply})
