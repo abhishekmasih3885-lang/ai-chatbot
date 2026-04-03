@@ -5,31 +5,32 @@
     <style>
         body {
             font-family: Arial;
-            background: #f4f6f9;
+            background: #0f172a; /* dark blue */
             transition: background 0.3s;
+            color: #e5e7eb;
         }
 
         .dark-mode {
-            background: #1e1e1e;
-            color: white;
+            background: #020617; /* deeper black */
+            color: #e5e7eb;
         }
 
         .chat-container {
             width: 450px;
             margin: 50px auto;
-            background: white;
+            background: #111827; /* dark gray */
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.6);
             overflow: hidden;
             transition: background 0.3s;
         }
 
         .dark-mode .chat-container {
-            background: #2c2c2c;
+            background: #030712; /* almost black */
         }
 
         .chat-header {
-            background: #4CAF50;
+            background: #1e3a8a; /* dark blue */
             color: white;
             padding: 15px;
             font-size: 20px;
@@ -53,23 +54,26 @@
         }
 
         .user {
-            background: #DCF8C6;
+            background: #1d4ed8; /* blue */
+            color: white;
             margin-left: auto;
             text-align: right;
         }
 
         .bot {
-            background: #eee;
+            background: #374151; /* gray */
+            color: #e5e7eb;
         }
 
         .dark-mode .bot {
-            background: #444;
+            background: #1f2933;
         }
 
         .chat-input {
             display: flex;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #374151;
             padding: 5px;
+            background: #020617;
         }
 
         input[type="text"] {
@@ -78,11 +82,13 @@
             border: none;
             outline: none;
             border-radius: 5px;
+            background: #111827;
+            color: white;
         }
 
         button {
             padding: 10px 15px;
-            background: #4CAF50;
+            background: #1e3a8a; /* dark blue */
             color: white;
             border: none;
             cursor: pointer;
@@ -91,12 +97,12 @@
         }
 
         button:hover {
-            background: #45a049;
+            background: #1d4ed8; /* lighter blue */
         }
 
         #typing {
             font-style: italic;
-            color: #999;
+            color: #9ca3af;
             margin-left: 10px;
         }
     </style>
@@ -185,7 +191,6 @@ function uploadFile() {
     let file = fileInput.files[0];
     if(file) {
         addMessage("File uploaded: " + file.name, "user");
-        // Optional: Send file to backend for processing
     }
 }
 </script>
